@@ -1,0 +1,1 @@
+Clear an application's badges from the 3D Touch Menu.
