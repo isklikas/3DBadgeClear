@@ -1,9 +1,9 @@
 Package: com.isklikas.3dbadgeclear
 Name: 3DBadgeClear
 Depends: mobilesubstrate
-Version: 0.0.1
+Version: 1.0.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: Clear your badges from the Force Touch menu! Only appears on apps that have badges.
 Maintainer: isklikas
 Author: isklikas
 Section: Tweaks
