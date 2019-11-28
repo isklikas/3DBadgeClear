@@ -12,6 +12,12 @@
 - (BOOL)iconManager:(id)arg1 shouldActivateApplicationShortcutItem:(id)arg2 atIndex:(unsigned long long)arg3 forIconView:(id)arg4; //This is called when you tap an action. Edit Home Screen and Delete return FALSE :D
 - (id)iconManager:(id)arg1 applicationShortcutItemsForIconView:(id)arg2; //Add the Shortcut here
 
+//iOS 12 Methods 
+
+- (id)appIconForceTouchController:(id)arg1 applicationShortcutItemsForGestureRecognizer:(id)arg2 ;
+- (BOOL)appIconForceTouchController:(id)arg1 shouldActivateApplicationShortcutItem:(id)arg2 atIndex:(unsigned long long)arg3 forGestureRecognizer:(id)arg4 ;
+- (id)appIconForceTouchController:(id)arg1 applicationBundleIdentifierForGestureRecognizer:(id)arg2 ;
+
 @end
 
 @interface SBSApplicationShortcutCustomImageIcon : NSObject
@@ -21,8 +27,62 @@
 
 @end
 
+@interface SBApplicationController : NSObject
++ (id)sharedInstance;
+- (id)applicationWithBundleIdentifier:(id)arg1;
+@end
+
 %hook SBIconController
 
+//iOS 10-12 Method
+- (id)appIconForceTouchController:(id)arg1 applicationShortcutItemsForGestureRecognizer:(id)arg2 {
+	NSArray *shortcutItems = %orig(arg1, arg2);
+	NSString *bundleID = [self appIconForceTouchController:arg1 applicationBundleIdentifierForGestureRecognizer:arg2];
+	if (bundleID) {
+		id app = [[objc_getClass("SBApplicationController") sharedInstance] applicationWithBundleIdentifier:bundleID];
+		//The app object knows if there is a badge or not
+		id badgeValue;
+		if ([app respondsToSelector:@selector(badgeValue)]) {
+			//iOS 12.1 Method
+			badgeValue = [app performSelector:@selector(badgeValue)];
+		} else {
+			//iOS 7 - 12.0 Method
+			badgeValue = [app performSelector:@selector(iconBadgeNumberOrString)];
+		}
+		if (!badgeValue) /* badgeValue is null when badge is zero */ {
+			return shortcutItems;
+		}
+		NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:) withObject: shortcutItems];
+		return arrayWithClearBadges;
+	}
+	else {
+		//It is probably a folder then.
+		return shortcutItems;
+	}
+}
+
+//iOS 10-12 Method
+- (BOOL)appIconForceTouchController:(id)arg1 shouldActivateApplicationShortcutItem:(id)arg2 atIndex:(unsigned long long)arg3 forGestureRecognizer:(id)arg4 {
+	BOOL shouldActivate = %orig(arg1, arg2, arg3, arg4);
+	NSString *shortcutType = [arg2 performSelector:@selector(type)];
+	if ([shortcutType isEqualToString:@"com.isklikas.springboardhome.application-shotcut-item.clear-badges"]) {
+		NSString *bundleID = [self appIconForceTouchController:arg1 applicationBundleIdentifierForGestureRecognizer:arg4];
+		id app = [[objc_getClass("SBApplicationController") sharedInstance] applicationWithBundleIdentifier:bundleID];
+		if ([app respondsToSelector:@selector(setBadgeValue:)]) /* iOS 12.1 Method */ {
+			[app performSelector:@selector(setBadgeValue:) withObject: nil];
+		}
+		else if ([app respondsToSelector:@selector(setBadgeNumberOrString:)]) /* iOS 11 Method */ {
+			[app performSelector:@selector(setBadgeNumberOrString:) withObject: nil];
+		}
+		else if ([app respondsToSelector:@selector(setBadge:)]) /* iOS 7 - 10.2 Method */ {
+			[app performSelector:@selector(setBadge:) withObject: nil];
+		}
+		return FALSE;
+	}
+	return shouldActivate;
+}
+
+//iOS 13+ Method
 - (BOOL)iconManager:(id)arg1 shouldActivateApplicationShortcutItem:(id)arg2 atIndex:(unsigned long long)arg3 forIconView:(id)arg4 {
 	BOOL shouldActivate = %orig(arg1, arg2, arg3, arg4);
 	NSString *shortcutType = [arg2 performSelector:@selector(type)];
@@ -34,6 +94,7 @@
 	return shouldActivate;
 }
 
+//iOS 13+ Method
 - (id)iconManager:(id)arg1 applicationShortcutItemsForIconView:(id)arg2 {
 	NSArray *shortcutItems = %orig(arg1, arg2);
 	id iconObject = [arg2 performSelector:@selector(icon)];
@@ -49,26 +110,49 @@
 		if (!badgeValue) /* badgeValue is null when badge is zero */ {
 			return shortcutItems;
 		}
-		/*
-			For creation of the delete item, we are based on:
-			<SBSApplicationShortcutItem: 0x283137750; type: com.apple.springboardhome.application-shotcut-item.rearrange-icons; localizedTitle: "Edit Home Screen"; localizedSubtitle: 0x0; targetContentIdentifier: 0x0; icon: <SBSApplicationShortcutSystemIcon: 0x2810263c0>; bundleIdentifierToLaunch: 0x0; activationMode: 0>
-		*/
-		id previousItem = shortcutItems[shortcutItems.count-1];
-		NSBundle *bundle = [[NSBundle alloc] initWithPath:kBundlePath];
-		UIImage *myImage = [UIImage imageNamed:@"clearbadge" inBundle:bundle compatibleWithTraitCollection:nil];
-		id customIcon = [[objc_getClass("SBSApplicationShortcutCustomImageIcon") alloc] initWithImagePNGData: UIImagePNGRepresentation(myImage)];
-		id clearItem = [previousItem copy];
-		[clearItem performSelector:@selector(setType:) withObject:@"com.isklikas.springboardhome.application-shotcut-item.clear-badges"];
-		[clearItem performSelector:@selector(setLocalizedTitle:) withObject:@"Clear Badge"];
-		[clearItem performSelector:@selector(setLocalizedSubtitle:) withObject:nil];
-		[clearItem performSelector:@selector(setTargetContentIdentifier:) withObject:nil];
-		[clearItem performSelector:@selector(setIcon:) withObject:customIcon];
-		[clearItem performSelector:@selector(setBundleIdentifierToLaunch:) withObject:nil];
-
-		NSMutableArray *arrayWithClearBadges = [NSMutableArray arrayWithArray: shortcutItems];
-		[arrayWithClearBadges addObject:clearItem];
+		NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:) withObject: shortcutItems];
 		return arrayWithClearBadges;
 	}
+}
+
+%new
+- (NSMutableArray *)arrayWithClearItem:(NSArray *)shortcutItems {
+	//Get the appropriate custom image
+	NSBundle *bundle = [[NSBundle alloc] initWithPath:kBundlePath];
+	UIImage *myImage = [UIImage imageNamed:@"clearbadge" inBundle:bundle compatibleWithTraitCollection:nil];
+	if (@available(iOS 13.0, *)) {
+    	BOOL isInDarkMode = ([[UITraitCollection currentTraitCollection] userInterfaceStyle] == UIUserInterfaceStyleDark);
+		if (isInDarkMode) {
+			myImage = [UIImage imageNamed:@"clearbadge-dark" inBundle:bundle compatibleWithTraitCollection:nil];
+		}
+	}
+	id customIcon = [[objc_getClass("SBSApplicationShortcutCustomImageIcon") alloc] initWithImagePNGData: UIImagePNGRepresentation(myImage)];
+	
+	//Make the clear shortcut
+	/*
+		For creation of the clear item, we are based on:
+		<SBSApplicationShortcutItem: 0x283137750; type: com.apple.springboardhome.application-shotcut-item.rearrange-icons; localizedTitle: "Edit Home Screen"; localizedSubtitle: 0x0; targetContentIdentifier: 0x0; icon: <SBSApplicationShortcutSystemIcon: 0x2810263c0>; bundleIdentifierToLaunch: 0x0; activationMode: 0>
+	*/
+	id clearItem = [[objc_getClass("SBSApplicationShortcutItem") alloc] init];
+	[clearItem performSelector:@selector(setType:) withObject:@"com.isklikas.springboardhome.application-shotcut-item.clear-badges"];
+	[clearItem performSelector:@selector(setLocalizedTitle:) withObject:@"Clear Badge"];
+	[clearItem performSelector:@selector(setLocalizedSubtitle:) withObject:nil];
+	[clearItem performSelector:@selector(setTargetContentIdentifier:) withObject:nil];
+	[clearItem performSelector:@selector(setIcon:) withObject:customIcon];
+	[clearItem performSelector:@selector(setBundleIdentifierToLaunch:) withObject:nil];
+	typedef void (*send_type)(void*, SEL, void*);
+	SEL setOffsetSEL = @selector(setActivationMode:);
+	send_type setOffsetIMP = (send_type)[objc_getClass("SBSApplicationShortcutItem") instanceMethodForSelector:setOffsetSEL];
+	setOffsetIMP((__bridge void*)clearItem, setOffsetSEL, 0);
+
+	NSMutableArray *arrayWithClearBadges;
+	if (shortcutItems) {
+		arrayWithClearBadges = [NSMutableArray arrayWithArray: shortcutItems];
+	} else {
+		arrayWithClearBadges = [NSMutableArray new];
+	}
+	[arrayWithClearBadges addObject:clearItem];
+	return arrayWithClearBadges;
 }
 
 %end
