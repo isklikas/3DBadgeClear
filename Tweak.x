@@ -110,6 +110,7 @@
 		if (!badgeValue) /* badgeValue is null when badge is zero */ {
 			return shortcutItems;
 		}
+		//NSLog(@"The badgeValue is: %@", badgeValue);
 		NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:) withObject: shortcutItems];
 		return arrayWithClearBadges;
 	}
@@ -137,7 +138,9 @@
 	[clearItem performSelector:@selector(setType:) withObject:@"com.isklikas.springboardhome.application-shotcut-item.clear-badges"];
 	[clearItem performSelector:@selector(setLocalizedTitle:) withObject:@"Clear Badge"];
 	[clearItem performSelector:@selector(setLocalizedSubtitle:) withObject:nil];
-	[clearItem performSelector:@selector(setTargetContentIdentifier:) withObject:nil];
+	if ([clearItem respondsToSelector:@selector(setTargetContentIdentifier:)]) {
+		[clearItem performSelector:@selector(setTargetContentIdentifier:) withObject:nil];
+	}
 	[clearItem performSelector:@selector(setIcon:) withObject:customIcon];
 	[clearItem performSelector:@selector(setBundleIdentifierToLaunch:) withObject:nil];
 	typedef void (*send_type)(void*, SEL, void*);
