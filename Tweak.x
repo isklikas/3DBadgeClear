@@ -143,7 +143,7 @@
 	}
 	[clearItem performSelector:@selector(setIcon:) withObject:customIcon];
 	[clearItem performSelector:@selector(setBundleIdentifierToLaunch:) withObject:nil];
-	typedef void (*send_type)(void*, SEL, void*);
+	typedef void (*send_type)(void*, SEL, unsigned long long);
 	SEL setOffsetSEL = @selector(setActivationMode:);
 	send_type setOffsetIMP = (send_type)[objc_getClass("SBSApplicationShortcutItem") instanceMethodForSelector:setOffsetSEL];
 	setOffsetIMP((__bridge void*)clearItem, setOffsetSEL, 0);
