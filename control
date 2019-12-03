@@ -1,7 +1,10 @@
-Package: com.isklikas.3dbadgeclear
+Package: com.twickd.john-sklikas.3dbadgeclear
 Name: 3DBadgeClear
 Depends: mobilesubstrate
-Version: 1.2.0
+Provides: com.isklikas.3dbadgeclear
+Conflicts: com.isklikas.3dbadgeclear
+Replaces: com.isklikas.3dbadgeclear
+Version: 1.3.0
 Architecture: iphoneos-arm
 Description: Clear your badges from the Force Touch / 3D Touch Menu! Only appears on apps that have badges.
 Maintainer: isklikas

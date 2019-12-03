@@ -136,7 +136,10 @@
 	*/
 	id clearItem = [[objc_getClass("SBSApplicationShortcutItem") alloc] init];
 	[clearItem performSelector:@selector(setType:) withObject:@"com.isklikas.springboardhome.application-shotcut-item.clear-badges"];
-	[clearItem performSelector:@selector(setLocalizedTitle:) withObject:@"Clear Badge"];
+    NSString *bPath = [bundle pathForResource:@"Translations" ofType:@"bundle"];
+    NSBundle *tBundle = [[NSBundle alloc] initWithPath:bPath];
+    NSString *clearBadge = NSLocalizedStringFromTableInBundle(@"Clear_Badge", nil, tBundle, nil);
+	[clearItem performSelector:@selector(setLocalizedTitle:) withObject:clearBadge];
 	[clearItem performSelector:@selector(setLocalizedSubtitle:) withObject:nil];
 	if ([clearItem respondsToSelector:@selector(setTargetContentIdentifier:)]) {
 		[clearItem performSelector:@selector(setTargetContentIdentifier:) withObject:nil];
