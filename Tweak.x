@@ -52,7 +52,7 @@
 		if (!badgeValue) /* badgeValue is null when badge is zero */ {
 			return shortcutItems;
 		}
-		NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:) withObject: shortcutItems];
+		NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:forFolder:) withObject: shortcutItems withObject:[NSNumber numberWithBool:FALSE]];
 		return arrayWithClearBadges;
 	}
 	else {
@@ -88,7 +88,15 @@
 	NSString *shortcutType = [arg2 performSelector:@selector(type)];
 	if ([shortcutType isEqualToString:@"com.isklikas.springboardhome.application-shotcut-item.clear-badges"]) {
 		id iconObject = [arg4 performSelector:@selector(icon)];
-		[iconObject performSelector:@selector(setBadge:) withObject:nil];
+		if ([iconObject isKindOfClass:objc_getClass("SBFolderIcon")]) {
+			NSArray *iconsInFolder = [[iconObject performSelector:@selector(folder)] performSelector:@selector(icons)];
+			for (id appIcon in iconsInFolder) {
+				[appIcon performSelector:@selector(setBadge:) withObject:nil];
+			}
+		}
+		else {
+			[iconObject performSelector:@selector(setBadge:) withObject:nil];
+		}
 		return FALSE;
 	}
 	return shouldActivate;
@@ -101,7 +109,24 @@
 	//Check if it is an app and it has a badge in the first place
 	if ([iconObject isKindOfClass:objc_getClass("SBFolderIcon")]) {
 		//This is a folder, not an app. For now, do nothing!
-		return shortcutItems;
+		//SBFolderIcon -> "folder" property -> "icons" property is NSArray
+		NSArray *iconsInFolder = [[iconObject performSelector:@selector(folder)] performSelector:@selector(icons)];
+		BOOL folderHasBadge = FALSE;
+		for (id appIcon in iconsInFolder) {
+			id app = [appIcon performSelector:@selector(application)];
+			id badgeValue = [app performSelector:@selector(badgeValue)];
+			if (badgeValue) /* badgeValue is null when badge is zero */ {
+				folderHasBadge = TRUE;
+				break;
+			}
+		}
+		if (!folderHasBadge) {
+			return shortcutItems;
+		}
+		else {
+			NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:forFolder:) withObject: shortcutItems withObject:[NSNumber numberWithBool:TRUE]];
+			return arrayWithClearBadges;
+		}	
 	}
 	else {
 		//It is an application
@@ -111,13 +136,13 @@
 			return shortcutItems;
 		}
 		//NSLog(@"The badgeValue is: %@", badgeValue);
-		NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:) withObject: shortcutItems];
+		NSMutableArray *arrayWithClearBadges = [self performSelector:@selector(arrayWithClearItem:forFolder:) withObject: shortcutItems withObject:[NSNumber numberWithBool:FALSE]];
 		return arrayWithClearBadges;
 	}
 }
 
 %new
-- (NSMutableArray *)arrayWithClearItem:(NSArray *)shortcutItems {
+- (NSMutableArray *)arrayWithClearItem:(NSArray *)shortcutItems forFolder:(NSNumber *)isFolder {
 	//Get the appropriate custom image
 	NSBundle *bundle = [[NSBundle alloc] initWithPath:kBundlePath];
 	UIImage *myImage = [UIImage imageNamed:@"clearbadge" inBundle:bundle compatibleWithTraitCollection:nil];
@@ -138,7 +163,13 @@
 	[clearItem performSelector:@selector(setType:) withObject:@"com.isklikas.springboardhome.application-shotcut-item.clear-badges"];
     NSString *bPath = [bundle pathForResource:@"Translations" ofType:@"bundle"];
     NSBundle *tBundle = [[NSBundle alloc] initWithPath:bPath];
-    NSString *clearBadge = NSLocalizedStringFromTableInBundle(@"Clear_Badge", nil, tBundle, nil);
+    NSString *clearBadge = @"";
+    if ([isFolder boolValue]) {
+    	clearBadge = NSLocalizedStringFromTableInBundle(@"Clear_Badges", nil, tBundle, nil);
+    }
+    else {
+    	clearBadge = NSLocalizedStringFromTableInBundle(@"Clear_Badge", nil, tBundle, nil);
+    }
 	[clearItem performSelector:@selector(setLocalizedTitle:) withObject:clearBadge];
 	[clearItem performSelector:@selector(setLocalizedSubtitle:) withObject:nil];
 	if ([clearItem respondsToSelector:@selector(setTargetContentIdentifier:)]) {
