@@ -2,9 +2,8 @@
 .DS_Store
 .theos/
 Cover.jpg
-Cover.psd
-clearbadge@3x.psd
+google-form-cover.png
 packageicon.jpg
 packageicon.png
-packageicon.psd
 packages/
+*.psd

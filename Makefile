@@ -1,3 +1,5 @@
+ARCHS = arm64 arm64e
+TARGET = iphone:clang::10.0
 INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
@@ -11,3 +13,5 @@ com.isklikas.3DBadgeClear-resources_INSTALL_PATH = /Library/MobileSubstrate/Dyna
 
 include $(THEOS)/makefiles/bundle.mk
 include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += 3dbadgeclearprefs
+include $(THEOS_MAKE_PATH)/aggregate.mk

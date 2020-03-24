@@ -182,6 +182,7 @@
 	send_type setOffsetIMP = (send_type)[objc_getClass("SBSApplicationShortcutItem") instanceMethodForSelector:setOffsetSEL];
 	setOffsetIMP((__bridge void*)clearItem, setOffsetSEL, 0);
 
+	//The below code adds the item as last, by default. The first option will be added soon!
 	NSMutableArray *arrayWithClearBadges;
 	if (shortcutItems) {
 		arrayWithClearBadges = [NSMutableArray arrayWithArray: shortcutItems];

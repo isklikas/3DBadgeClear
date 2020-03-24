@@ -1,6 +1,6 @@
 Package: com.twickd.john-sklikas.3dbadgeclear
 Name: 3DBadgeClear
-Depends: mobilesubstrate
+Depends: mobilesubstrate, me.conorthedev.libconorthedev
 Provides: com.isklikas.3dbadgeclear
 Conflicts: com.isklikas.3dbadgeclear
 Replaces: com.isklikas.3dbadgeclear
