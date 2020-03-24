@@ -83,10 +83,10 @@
 
 - (void) sendEmailTo:(NSString *)to withSubject:(NSString *)subject withBody:(NSString *)body {
     NSString *mailString = [NSString stringWithFormat:@"mailto:?to=%@&subject=%@&body=%@",
-                        [to stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
-                        [subject stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
-                        [body stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailString]];
+                        [to stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]],
+                        [subject stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]],
+                        [body stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailString] options:@{} completionHandler:nil];
 }
 
 - (void)paypal {
