@@ -2,10 +2,10 @@
 // See http://iphonedevwiki.net/index.php/Logos
 
 #define kBundlePath @"/Library/MobileSubstrate/DynamicLibraries/com.isklikas.3DBadgeClear-resources.bundle"
-#define preferencesPath = @"/var/mobile/Library/Preferences/com.isklikas.3dbadgeclearprefs.plist"
-#define noctisEnabledPath = @"/var/mobile/Library/Preferences/com.laughingquoll.noctis.plist"
-#define noctis12EnabledPath = @"/var/mobile/Library/Preferences/com.laughingquoll.noctis12prefs.plist"
-#define eclipsePath = @"/var/mobile/Library/Preferences/com.gmoran.eclipse.plist"
+#define preferencesPath @"/var/mobile/Library/Preferences/com.isklikas.3dbadgeclearprefs.plist"
+#define noctisEnabledPath @"/var/mobile/Library/Preferences/com.laughingquoll.noctis.plist"
+#define noctis12EnabledPath @"/var/mobile/Library/Preferences/com.laughingquoll.noctis12prefs.plist"
+#define eclipsePath @"/var/mobile/Library/Preferences/com.gmoran.eclipse.plist"
 
 #import "SBSApplicationShortcutItem.h"
 
