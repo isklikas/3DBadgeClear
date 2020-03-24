@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 25/3/20.
+
+*/
+
+"Clear_Badge" = "حذف الإشعار";
+"Clear_Badges" = "حذف جميع الإشعارات";
