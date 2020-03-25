@@ -203,14 +203,30 @@
 	send_type setOffsetIMP = (send_type)[objc_getClass("SBSApplicationShortcutItem") instanceMethodForSelector:setOffsetSEL];
 	setOffsetIMP((__bridge void*)clearItem, setOffsetSEL, 0);
 
-	//The below code adds the item as last, by default. The first option will be added soon!
-	NSMutableArray *arrayWithClearBadges;
-	if (shortcutItems) {
-		arrayWithClearBadges = [NSMutableArray arrayWithArray: shortcutItems];
-	} else {
-		arrayWithClearBadges = [NSMutableArray new];
+	//First or last option
+	NSDictionary *ourPrefs = [[NSDictionary alloc] initWithContentsOfFile:preferencesPath];
+	BOOL appearsLast = TRUE;
+	if (ourPrefs) {
+		appearsLast = [[ourPrefs objectForKey:@"appearsLast"] boolValue];
 	}
-	[arrayWithClearBadges addObject:clearItem];
+	
+	NSMutableArray *arrayWithClearBadges;
+	if (appearsLast) {
+		if (shortcutItems) {
+			arrayWithClearBadges = [NSMutableArray arrayWithArray: shortcutItems];
+		} else {
+			arrayWithClearBadges = [NSMutableArray new];
+		}
+		[arrayWithClearBadges addObject:clearItem];
+	}
+	else {
+		arrayWithClearBadges = [NSMutableArray new];
+		[arrayWithClearBadges addObject:clearItem];
+		if (shortcutItems) {
+			[arrayWithClearBadges addObjectsFromArray: shortcutItems];
+		}
+		
+	}
 	return arrayWithClearBadges;
 }
 
