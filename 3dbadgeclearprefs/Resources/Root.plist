@@ -23,6 +23,8 @@
 			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Options</string>
+			<key>footerText</key>
+			<string>If this is on, &quot;Clear Badge&quot; shows last. If this is off, &quot;Clear Badge&quot; shows first.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -39,16 +41,12 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
-			<key>footerText</key>
-			<string>If this is on, &quot;Clear Badge&quot; shows last. If this is off, &quot;Clear Badge&quot; shows first.</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
 			<key>height</key>
 			<integer>5</integer>
 			<key>label</key>
 			<string>Others</string>
+			<key>footerText</key>
+			<string>I&apos;m a (usually sleepless) college student, doing this just because I like it. If you like it too, maybe you could buy me a coffee for more sleepless nights?</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -109,12 +107,6 @@
 			<string>paypal-logo.png</string>
 			<key>cellClass</key>
 			<string>CTDTableCell</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>footerText</key>
-			<string>I&apos;m a (usually sleepless) college student, doing this just because I like it. If you like it too, maybe you could buy me a coffee for more sleepless nights?</string>
 		</dict>
 	</array>
 	<key>title</key>
