@@ -108,6 +108,28 @@
 			<key>cellClass</key>
 			<string>CTDTableCell</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>height</key>
+			<integer>5</integer>
+			<key>label</key>
+			<string>Temporary</string>
+			<key>footerText</key>
+			<string>There is a competition running for &quot;Tweak of the Year&quot;. If you like this tweak, I would really appreciate your vote, it means a lot to me. 3DBadgeClear is the first one under this link.</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>competition</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Vote 3DBadgeClear</string>
+			<key>icon</key>
+			<string>trophy.png</string>
+			<key>cellClass</key>
+			<string>CTDTableCell</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string></string>
