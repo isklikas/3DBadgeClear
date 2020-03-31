@@ -162,7 +162,7 @@
 		//Noctis has 2 of them
 		NSDictionary *noctisPrefs = [[NSDictionary alloc] initWithContentsOfFile:noctisEnabledPath];
 		NSDictionary *noctis12Prefs = [[NSDictionary alloc] initWithContentsOfFile:noctis12EnabledPath];
-		BOOL isNoctisEnabled = ([[noctisPrefs objectForKey:@"LQDarkModeEnabled"] boolValue] || [[noctis12Prefs objectForKey:@"enabled"] boolValue]);
+		BOOL isNoctisEnabled = ([[noctisPrefs objectForKey:@"LQDDarkModeEnabled"] boolValue] || [[noctis12Prefs objectForKey:@"enabled"] boolValue]);
 		
 		//Eclipse
 		NSDictionary *eclipsePrefs = [[NSDictionary alloc] initWithContentsOfFile:eclipsePath];
