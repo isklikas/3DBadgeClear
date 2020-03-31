@@ -108,6 +108,7 @@
 			<key>cellClass</key>
 			<string>CTDTableCell</string>
 		</dict>
+        <!--
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
@@ -130,6 +131,7 @@
 			<key>cellClass</key>
 			<string>CTDTableCell</string>
 		</dict>
+        -->
 	</array>
 	<key>title</key>
 	<string></string>

@@ -225,7 +225,6 @@
 		if (shortcutItems) {
 			[arrayWithClearBadges addObjectsFromArray: shortcutItems];
 		}
-		
 	}
 	return arrayWithClearBadges;
 }

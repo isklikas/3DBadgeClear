@@ -93,8 +93,10 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.paypal.me/isklikas"] options:@{} completionHandler:nil];
 }
 
+/*
 - (void)competition {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://silzee.com/tweaks/"] options:@{} completionHandler:nil];
 }
+*/
 
 @end
