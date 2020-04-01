@@ -24,7 +24,7 @@
 			<key>label</key>
 			<string>Options</string>
 			<key>footerText</key>
-			<string>If this is on, &quot;Clear Badge&quot; shows last. If this is off, &quot;Clear Badge&quot; shows first.</string>
+			<string>Clear_Last_Explanation</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -36,7 +36,7 @@
 			<key>key</key>
 			<string>appearsLast</string>
 			<key>label</key>
-			<string>Should &quot;Clear Badge&quot; be last?</string>
+			<string>Clear_Last</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -46,7 +46,7 @@
 			<key>label</key>
 			<string>Others</string>
 			<key>footerText</key>
-			<string>I&apos;m a (usually sleepless) college student, doing this just because I like it. If you like it too, maybe you could buy me a coffee for more sleepless nights?</string>
+			<string>Donation_Explanation</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -54,7 +54,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Follow me on Twitter</string>
+			<string>Follow_Twitter</string>
 			<key>icon</key>
 			<string>twitter-logo.png</string>
 			<key>cellClass</key>
@@ -66,7 +66,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>View Source Code</string>
+			<string>Source_Code</string>
 			<key>icon</key>
 			<string>github-logo.png</string>
 			<key>cellClass</key>
@@ -78,7 +78,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Submit a translation</string>
+			<string>Submit_Translation</string>
 			<key>icon</key>
 			<string>form-logo.png</string>
 			<key>cellClass</key>
@@ -90,7 +90,7 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Send me an email</string>
+			<string>Send_Email</string>
 			<key>icon</key>
 			<string>email-icon.png</string>
 			<key>cellClass</key>
@@ -102,36 +102,12 @@
 			<key>cell</key>
 			<string>PSButtonCell</string>
 			<key>label</key>
-			<string>Donate on PayPal</string>
+			<string>Donate_PayPal</string>
 			<key>icon</key>
 			<string>paypal-logo.png</string>
 			<key>cellClass</key>
 			<string>CTDTableCell</string>
 		</dict>
-        <!--
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>height</key>
-			<integer>5</integer>
-			<key>label</key>
-			<string>Temporary</string>
-			<key>footerText</key>
-			<string>There is a competition running for &quot;Tweak of the Year&quot;. If you like this tweak, I would really appreciate your vote, it means a lot to me. 3DBadgeClear is the first one under this link.</string>
-		</dict>
-		<dict>
-			<key>action</key>
-			<string>competition</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Vote 3DBadgeClear</string>
-			<key>icon</key>
-			<string>trophy.png</string>
-			<key>cellClass</key>
-			<string>CTDTableCell</string>
-		</dict>
-        -->
 	</array>
 	<key>title</key>
 	<string></string>

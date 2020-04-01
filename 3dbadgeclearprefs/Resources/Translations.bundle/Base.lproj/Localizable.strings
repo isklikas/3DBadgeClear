@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 1/4/20.
+
+*/
+
+"Options" = "Options";
+"Clear_Last" = "Should \"Clear Badge\" be last?";
+"Clear_Last_Explanation" = "If this is on, \"Clear Badge\" shows last. If this is off, \"Clear Badge\" shows first.";
+"Others" = "Others";
+"Follow_Twitter" = "Follow me on Twitter";
+"Source_Code" = "View Source Code";
+"Submit_Translation" = "Submit a translation";
+"Send_Email" = "Send me an email";
+"Donate_PayPal" = "Donate on PayPal";
+"Donation_Explanation" = "I'm a (usually sleepless) college student, doing this just because I like it. If you like it too, maybe you could buy me a coffee for more sleepless nights?";

@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 1/4/20.
+
+*/
+
+"Options" = "Konfigurime";
+"Clear_Last" = "A duhet që “Clear Badge” të jet e fundit?";
+"Clear_Last_Explanation" = "Nëse kjo është e ndezur, “Clear Badge” do të shfaqet në fund. Nëse është e fikur, “Clear Badge” do të shfaqet në fillim.";
+"Others" = "Të tjera";
+"Follow_Twitter" = "Më ndiq mua në Twitter";
+"Source_Code" = "Shikoni kodin e burimit";
+"Submit_Translation" = "Paraqit një përkthim";
+"Send_Email" = "Më dërgo mua një email";
+"Donate_PayPal" = "Dhuro në PayPal";
+"Donation_Explanation" = "Un jam (zakonisht pa gjum) një stundent kolegji, duke e bërë këtë sepse më pëlqen. Nëse dhe ty të pëlqen, ndoshta mund të më blesh mua një kafe për më shum natë të vona pa gjum?";

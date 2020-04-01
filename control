@@ -4,7 +4,7 @@ Depends: mobilesubstrate, me.conorthedev.libconorthedev
 Provides: com.isklikas.3dbadgeclear
 Conflicts: com.isklikas.3dbadgeclear
 Replaces: com.isklikas.3dbadgeclear
-Version: 1.6.2
+Version: 1.6.3
 Architecture: iphoneos-arm
 Description: Clear your badges from the Force Touch / 3D Touch Menu! Only appears on apps that have badges.
 Maintainer: isklikas
