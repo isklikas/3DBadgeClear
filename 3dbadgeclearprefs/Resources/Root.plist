@@ -10,7 +10,7 @@
 			<key>cell</key>
 			<string>PSDefaultCell</string>
 			<key>cellClass</key>
-			<string>BDGLRHeaderCell</string>
+			<string>BDGCLRHeaderCell</string>
 			<key>title</key>
 			<string>3DBadgeClear</string>
 			<key>subtitle</key>
@@ -60,7 +60,7 @@
 			<key>icon</key>
 			<string>twitter-logo.png</string>
 			<key>cellClass</key>
-			<string>CTDTableCell</string>
+			<string>BDGCLRTableCell</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -72,7 +72,7 @@
 			<key>icon</key>
 			<string>github-logo.png</string>
 			<key>cellClass</key>
-			<string>CTDTableCell</string>
+			<string>BDGCLRTableCell</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -84,7 +84,7 @@
 			<key>icon</key>
 			<string>form-logo.png</string>
 			<key>cellClass</key>
-			<string>CTDTableCell</string>
+			<string>BDGCLRTableCell</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -96,7 +96,7 @@
 			<key>icon</key>
 			<string>email-icon.png</string>
 			<key>cellClass</key>
-			<string>CTDTableCell</string>
+			<string>BDGCLRTableCell</string>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -108,7 +108,7 @@
 			<key>icon</key>
 			<string>paypal-logo.png</string>
 			<key>cellClass</key>
-			<string>CTDTableCell</string>
+			<string>BDGCLRTableCell</string>
 		</dict>
 	</array>
 	<key>title</key>

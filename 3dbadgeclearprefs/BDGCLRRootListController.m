@@ -1,25 +1,12 @@
 #include "BDGCLRRootListController.h"
 
-@implementation BDGLRHeaderCell
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier specifier:(PSSpecifier *)specifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier specifier:specifier];
-    if (self) {
-        self.titleLabel.textColor = [UIColor whiteColor];
-        self.subtitleLabel.textColor = [UIColor whiteColor];
-    }
-    return self;
-}
-
-@end
-
 @implementation BDGCLRRootListController
 
 - (instancetype)init {
   self = [super init];
 
   if (self) {
-      CTDPreferenceSettings *preferenceSettings = [[CTDPreferenceSettings alloc] init];
+      BDGCLRPreferenceSettings *preferenceSettings = [[BDGCLRPreferenceSettings alloc] init];
       preferenceSettings.customizeNavbar = YES;
       
       preferenceSettings.tintColor = [UIColor colorWithRed:2.0f / 255.0f
