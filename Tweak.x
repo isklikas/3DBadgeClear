@@ -41,7 +41,7 @@
 
 //iOS 10-12 Method
 //Maybe folders use a different method? Or have a different method since I can not use the bundle ID. 
-//I would appreciate some help, or a tester.
+//I would appreciate some help, or a tester on iOS 12 or below.
 - (id)appIconForceTouchController:(id)arg1 applicationShortcutItemsForGestureRecognizer:(id)arg2 {
 	NSArray *shortcutItems = %orig(arg1, arg2);
 	NSString *bundleID = [self appIconForceTouchController:arg1 applicationBundleIdentifierForGestureRecognizer:arg2];
