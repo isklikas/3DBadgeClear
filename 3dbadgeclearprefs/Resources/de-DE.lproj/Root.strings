@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 2/5/2020.
+
+*/
+
+"Options" = "Einstellungen";
+"Clear_Last" = "\"Kennzeichen löschen\" ganz nach unten?";
+"Clear_Last_Explanation" = "Wenn dies aktiviert ist, wird \"Kennzeichen löschen\" zuletzt angezeigt. Wenn dies deaktiviert ist, wird \"Kennzeichen löschen\" zuerst angezeigt.";
+"Others" = "Sonstiges";
+"Follow_Twitter" = "Folge mir auf Twitter";
+"Source_Code" = "Quellcode anzeigen";
+"Submit_Translation" = "Übersetzung einreichen";
+"Send_Email" = "E-Mail senden";
+"Donate_PayPal" = "Spenden mit PayPal";
+"Donation_Explanation" = "Ich bin ein (normalerweise schlafloser) Student und mache das nur, weil es mir gefällt. Wenn es dir auch gefällt, könntest du mir vielleicht einen Kaffee für mehr schlaflosere Nächte kaufen?";
