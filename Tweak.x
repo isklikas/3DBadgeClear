@@ -113,7 +113,6 @@
 	id iconObject = [arg2 performSelector:@selector(icon)];
 	//Check if it is an app and it has a badge in the first place
 	if ([iconObject isKindOfClass:objc_getClass("SBFolderIcon")]) {
-		//This is a folder, not an app. For now, do nothing!
 		//SBFolderIcon -> "folder" property -> "icons" property is NSArray
 		NSArray *iconsInFolder = [[iconObject performSelector:@selector(folder)] performSelector:@selector(icons)];
 		BOOL folderHasBadge = FALSE;
