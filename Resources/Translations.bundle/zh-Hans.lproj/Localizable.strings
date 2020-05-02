@@ -2,9 +2,9 @@
   Localizable.strings
   3DBadgeClear
 
-  Created by Yannis on 10/3/20.
+  Created by Yannis on 2/5/20.
 
 */
 
 "Clear_Badge" = "清理角标";
-"Clear_Badges" = "清理角标";
+"Clear_Badges" = "清理所有角标";

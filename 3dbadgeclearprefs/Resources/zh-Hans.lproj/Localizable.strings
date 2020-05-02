@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 2/5/20.
+
+*/
+
+"Options" = "选项";
+"Clear_Last" = "把 \"清理角标\" 菜单放到最后吗?";
+"Clear_Last_Explanation" = "如果启用，则在 3D-Touch 菜单的最后显示\"清理角标\"。 如果未启用，则会在 3D-Touch 菜单的顶部显示\"清理角标\"。";
+"Others" = "其他";
+"Follow_Twitter" = "在 Twitter 上关注我";
+"Source_Code" = "查看源代码";
+"Submit_Translation" = "提交翻译";
+"Send_Email" = "通过电子邮件向我反馈";
+"Donate_PayPal" = "在 PayPal 上捐款";
+"Donation_Explanation" = "我是一名(经常失眠)的大学生，这样做是因为我喜欢它。  如果你也喜欢的话，也许您可以给我买一杯为我带来不眠之夜的咖啡？";

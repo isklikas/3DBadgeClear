@@ -1,0 +1,10 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 2/5/2020.
+
+*/
+
+"Clear_Badge" = "Kennzeichen löschen";
+"Clear_Badges" = "Alle Kennzeichen löschen";
