@@ -1,0 +1,10 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 19/06/20.
+
+*/
+
+"Clear_Badge" = "배지 지우기";
+"Clear_Badges" = "모든 배지 지우기";

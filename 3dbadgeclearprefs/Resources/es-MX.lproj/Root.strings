@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 19/06/20.
+
+*/
+
+"Options" = "Opciones";
+"Clear_Last" = "¿debería borrar la insignias como la última vez?";
+"Clear_Last_Explanation" = "Si esta activado, “limpiar insignia” mostrar ultimas. Si está desactivado, “limpiar insignias” mostrar primero.";
+"Others" = "Otros";
+"Follow_Twitter" = "Sígueme en Twitter";
+"Source_Code" = "Ver código fuente";
+"Submit_Translation" = "Enviar una traducción";
+"Send_Email" = "Envíame un email";
+"Donate_PayPal" = "Donaciones con Paypal";
+"Donation_Explanation" = "Yo soy un (madrugador) estudiante de colegio, haciendo esto por que realmente me gusta. Si te gusta mi trabajo, podrias ayudarme donando para comprarme un cage para esas noches de insomnio.";

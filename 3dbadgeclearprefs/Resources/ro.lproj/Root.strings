@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 19/06/20.
+
+*/
+
+"Options" = "Opțiuni";
+"Clear_Last" = "Ar trebui “Șterge insigna” să fie afișată ultima?";
+"Clear_Last_Explanation" = "Dacă această opțiune este activată, “Șterge insigna” va fi afișată în josul meniului. Dacă aceasta este dezactivată, “Șterge insigna” este afișată prima în meniu.";
+"Others" = "Altele";
+"Follow_Twitter" = "Urmărește-mă pe Twitter";
+"Source_Code" = "Vezi Codul Sursă";
+"Submit_Translation" = "Trimite o traducere";
+"Send_Email" = "Trimite-mi un e-mail";
+"Donate_PayPal" = "Donează pe PayPal";
+"Donation_Explanation" = "Sunt un student (de obicei fără somn) care face asta din plăcere. Dacă iți place și ție, poate îmi poti face cinste cu o cafea pentru mai multe nopți fără somn?";

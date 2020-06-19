@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 19/06/20.
+
+*/
+
+"Options" = "設定";
+"Clear_Last" = "「バッジを消す」を最後に";
+"Clear_Last_Explanation" = "これがオンの場合、「バッジを消す」が最後に表示されます。 これがオフの場合、「バッジを消す」が最初に表示されます。";
+"Others" = "その他";
+"Follow_Twitter" = "Twitterをフォローする";
+"Source_Code" = "ソースコードを見る";
+"Submit_Translation" = "翻訳を提案する";
+"Send_Email" = "E-mailを送る";
+"Donate_PayPal" = "PayPalで寄付する";
+"Donation_Explanation" = "私は(概ね眠れない)大学生です。好きという理由のみで作りました。 もしあなたがこれが気に入ったなら、もっと眠れない夜のために私にコーヒーを奢っていただけませんか？";

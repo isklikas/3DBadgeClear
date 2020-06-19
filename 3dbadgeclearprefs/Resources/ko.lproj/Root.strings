@@ -1,0 +1,18 @@
+/*
+  Localizable.strings
+  3DBadgeClear
+
+  Created by Yannis on 19/06/20.
+
+*/
+
+"Options" = "옵션";
+"Clear_Last" = "'배지 지우기'를 가장 아래로";
+"Clear_Last_Explanation" = "이 옵션을 켜면 '배지 지우기' 메뉴가 가장 아래에 위치합니다. 반대로 끄면 '배지 지우기' 메뉴가 가장 위에 위치합니다.";
+"Others" = "그 외";
+"Follow_Twitter" = "트위터 계정 팔로우하기";
+"Source_Code" = "소스 코드 보기";
+"Submit_Translation" = "번역 제안하기";
+"Send_Email" = "피드백 보내기";
+"Donate_PayPal" = "PayPal로 기부하기";
+"Donation_Explanation" = "저는 (늘상 수면이 부족한) 대학생이며, 이 트윅은 그저 제가 좋아서 만들었을 뿐입니다. 만약 이 트윅이 마음에 드신다면 더욱 수면이 부족해질 밤을 위해 커피 한 잔만 부탁드립니다.";
